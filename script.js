@@ -1,12 +1,6 @@
-price.onclick = function(focusFild) {
-    if (focusFild.target.tagName != "price") return;
+function createNotification(){
+    let notification = document.createElement ('span')
+notification.className = "note"
 
-    else {
-        let elem = document.getElementById('price');
-        elem.borderСolor = '#0af316';
-
-    }
-
-
-
+form.before('span');
 }
