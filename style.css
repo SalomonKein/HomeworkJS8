@@ -35,4 +35,26 @@ input:focus {
     border-radius: 5px;
     font: italic 14px serif;
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    /* align-content: baseline; */
+
+}
+.closeButton {
+    width: 25px;
+    height: 25px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    margin-left: 10px;
+    rotate: 45deg;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    
+    
+   
+    
 }
