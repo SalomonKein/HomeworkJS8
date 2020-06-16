@@ -1,17 +1,20 @@
+let notification = document.createElement('span');
+
 function createNotification(anchor, position, html) {
 
-   
-    let notification = document.createElement('span');
+
+
     notification.className = "note";
-    
+
     let curentPrice = document.querySelector('input');
     // let curentPriceGreen = curentPrice.value.style.background = "green";
     notification.innerHTML = `Curent price: ${curentPrice.value}`;
     form.before(notification);
 
     positionAt(anchor, position, notification);
-  
-    createCloseCross (notification, "right-in", 'closeButton')
+
+    createCloseCross(notification, 'closeButton')
+
 }
 let form = document.querySelector('form')
 
@@ -19,18 +22,12 @@ function getCoords(elem) {
     let box = elem.getBoundingClientRect();
 
     return {
-      top: box.top + pageYOffset,
-      left: box.left + pageXOffset
+        top: box.top,
+        left: box.left,
     };
-  }
-  function getCoords(elem) {
-    let box = elem.getBoundingClientRect();
+}
+console.log(getCoords(form))
 
-    return {
-      top: box.top + pageYOffset,
-      left: box.left + pageXOffset
-    };
-  }
 function positionAt(anchor, position, elem) {
 
     let anchorCoords = getCoords(anchor);
@@ -40,29 +37,39 @@ function positionAt(anchor, position, elem) {
             elem.style.top = anchorCoords.top - 15 - elem.offsetHeight + "px";
             break;
         case "right-in":
-             
-             elem.style.left = anchorCoords.left + anchor.offsetWidth - elem.offsetWidth + "px";
-             elem.style.top = anchorCoords.top + "px";
-             break;}
-}
 
-function createCloseCross (anchor, position,) {
+            elem.style.left = anchorCoords.left + anchor.offsetWidth - elem.offsetWidth + "px";
+            elem.style.top = anchorCoords.top + "px";
+            break;
+    }
+}
+let crossButton = document.createElement('button');
+
+function createCloseCross(anchor, position, ) {
     let crossButton = document.createElement('button');
     crossButton.className = 'closeButton'
-    
+
     crossButton.innerHTML = `+`;
     anchor.append(crossButton);
 
     positionAt(anchor, position, crossButton);
+
+
 }
 
+console.log(crossButton);
+// let span = document.querySelector('span');
+// console.log(span);
+crossButton.addEventListener("onclick", () => notification.remove());
+
 function selectValue() {
-    let range = new Range();
+    // let range = new Range();
     let input = document.querySelector('input');
-    range.setStart(input, 0, );
-    range.setEnd(input, 1, );
-    let grenStyle = input.value;
-    grenStyle.style.background = "green";
+    // range.setStart(form, 2);
+    // range.setEnd(form, 5);
+    // let greenStyle = input.value;
+    input.style.background = "green";
+    input.style.color = "white";
     console.log(input.value);
 
     // document.getSelection().addRange(range);
@@ -71,23 +78,7 @@ function selectValue() {
 
 
 
- form.addEventListener("focusout", () => createNotification(form, "top", "note"));
+form.addEventListener("focusout", () => createNotification(form, "top", "note"));
 form.addEventListener("focusout", () => selectValue());
-let closeButton = document.querySelector('button');
-console.log(closeButton)
+
 // closeButton.addEventListener("onclick", () => remove.notification);
-
-
-// price.onblur = function() {
-//     createNotification(form, "top", "note");
-// };
-
-// body.onclick = function(event) {
-//     // if (!event.price) {
-//     createNotification(form, "top", "note");
-//     // }
-// };
-// body.onclick = function(event) {
-//     alert(event.type + " на " + event.currentTarget);
-//     // alert("Координаты: " + event.clientX + ":" + event.clientY);
-// };

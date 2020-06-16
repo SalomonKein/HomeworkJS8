@@ -38,8 +38,8 @@ input:focus {
     display: flex;
     align-items: center;
     /* align-content: baseline; */
-
 }
+
 .closeButton {
     width: 25px;
     height: 25px;
@@ -52,9 +52,5 @@ input:focus {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    
-    
-   
-    
+    align-content: flex-start;
 }
