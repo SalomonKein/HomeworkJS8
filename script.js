@@ -4,19 +4,19 @@ function createNotification(anchor, position, html) {
 
     notification.className = "note";
     let curentPrice = document.querySelector('input');
-
-    if (!typeof(curentPrice) == 'number' || curentPrice < 0) {
+    console.log(typeof(curentPrice.value));
+    if (curentPrice.value < 0) {
 
         notification.innerHTML = `Please enter correct price`;
         form.after(notification);
         input.style.border = 'red';
-        positionAt(anchor, position, notification);
+        positionAt(anchor, "bottom", notification);
     } else {
         // let curentPriceGreen = curentPrice.value.style.background = "green";
         notification.innerHTML = `Curent price: ${curentPrice.value}`;
         form.before(notification);
 
-        positionAt(anchor, position, notification);
+        positionAt(anchor, "top", notification);
 
         createCloseCross(notification, 'closeButton')
     }
@@ -46,6 +46,11 @@ function positionAt(anchor, position, elem) {
 
             elem.style.left = anchorCoords.left + anchor.offsetWidth - elem.offsetWidth + "px";
             elem.style.top = anchorCoords.top + "px";
+            break;
+        case "bottom":
+
+            elem.style.left = anchorCoords.left + 5 + elem.offsetWidth + "px";
+            elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
             break;
     }
 }
@@ -84,7 +89,8 @@ function selectValue() {
 
 
 
-form.addEventListener("focusout", () => createNotification(form, "top", "note"));
+form.addEventListener("focusout", () => notification.remove());
+form.addEventListener("focusout", () => createNotification(form, "top", "bottom", "note"))
 form.addEventListener("focusout", () => selectValue());
 
 // closeButton.addEventListener("onclick", () => remove.notification);
