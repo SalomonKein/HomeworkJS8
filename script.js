@@ -2,18 +2,24 @@ let notification = document.createElement('span');
 
 function createNotification(anchor, position, html) {
 
-
-
     notification.className = "note";
-
     let curentPrice = document.querySelector('input');
-    // let curentPriceGreen = curentPrice.value.style.background = "green";
-    notification.innerHTML = `Curent price: ${curentPrice.value}`;
-    form.before(notification);
 
-    positionAt(anchor, position, notification);
+    if (!typeof(curentPrice) == 'number' || curentPrice < 0) {
 
-    createCloseCross(notification, 'closeButton')
+        notification.innerHTML = `Please enter correct price`;
+        form.after(notification);
+        input.style.border = 'red';
+        positionAt(anchor, position, notification);
+    } else {
+        // let curentPriceGreen = curentPrice.value.style.background = "green";
+        notification.innerHTML = `Curent price: ${curentPrice.value}`;
+        form.before(notification);
+
+        positionAt(anchor, position, notification);
+
+        createCloseCross(notification, 'closeButton')
+    }
 
 }
 let form = document.querySelector('form')
