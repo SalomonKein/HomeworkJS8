@@ -1,14 +1,14 @@
 let notification = document.createElement('span');
-<<<<<<< HEAD
-function createNotification(anchor, position, html) {
+// <<<<<<< HEAD
+// function createNotification(anchor, position, html) {
 
    
     
-=======
+// =======
 
 function createNotification(anchor, position, html) {
 
->>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
+// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
     notification.className = "note";
     let curentPrice = document.querySelector('input');
     console.log(typeof(curentPrice.value));
@@ -81,11 +81,11 @@ console.log(crossButton);
 crossButton.addEventListener("onclick", () => notification.remove());
 
 function selectValue() {
-<<<<<<< HEAD
+// <<<<<<< HEAD
   let input = document.querySelector('input');
   document.querySelector('.closeButton').addEventListener("click", () => {
   notification.remove()
-  setElementById.price.value.innerHTML=''
+  // setElementById.price.value.innerHTML=''
   });
   // let range = new Range();
   
@@ -97,18 +97,18 @@ function selectValue() {
   console.log(input.value);
   
   // document.getSelection().addRange(range);
-=======
-    // let range = new Range();
-    let input = document.querySelector('input');
-    // range.setStart(form, 2);
-    // range.setEnd(form, 5);
-    // let greenStyle = input.value;
-    input.style.background = "green";
-    input.style.color = "white";
-    console.log(input.value);
+// =======
+//     // let range = new Range();
+//     let input = document.querySelector('input');
+//     // range.setStart(form, 2);
+//     // range.setEnd(form, 5);
+//     // let greenStyle = input.value;
+//     input.style.background = "green";
+//     input.style.color = "white";
+//     console.log(input.value);
 
-    // document.getSelection().addRange(range);
->>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
+//     // document.getSelection().addRange(range);
+// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
 };
 
 
@@ -118,7 +118,7 @@ form.addEventListener("focusout", () => {
   selectValue()
 });
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 //  form.addEventListener("focusout", () => createNotification(form, "top", "note"));
 // form.addEventListener("focusout", () => selectValue());
 let closeButton = document.querySelector('button');
@@ -139,11 +139,11 @@ console.log(closeButton)
 //     alert(event.type + " на " + event.currentTarget);
 //     // alert("Координаты: " + event.clientX + ":" + event.clientY);
 // };
-=======
+// =======
 
-form.addEventListener("focusout", () => notification.remove());
-form.addEventListener("focusout", () => createNotification(form, "top", "bottom", "note"))
-form.addEventListener("focusout", () => selectValue());
+// form.addEventListener("focusout", () => notification.remove());
+// form.addEventListener("focusout", () => createNotification(form, "top", "bottom", "note"))
+// form.addEventListener("focusout", () => selectValue());
 
-// closeButton.addEventListener("onclick", () => remove.notification);
->>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
+// // closeButton.addEventListener("onclick", () => remove.notification);
+// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
