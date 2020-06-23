@@ -1,7 +1,8 @@
+let notification = document.createElement('span');
 function createNotification(anchor, position, html) {
 
    
-    let notification = document.createElement('span');
+    
     notification.className = "note";
     
     let curentPrice = document.querySelector('input');
@@ -57,22 +58,32 @@ function createCloseCross (anchor, position,) {
 }
 
 function selectValue() {
-    let range = new Range();
-    let input = document.querySelector('input');
-    range.setStart(input, 0, );
-    range.setEnd(input, 1, );
-    let grenStyle = input.value;
-    grenStyle.style.background = "green";
-    console.log(input.value);
-
-    // document.getSelection().addRange(range);
+  let input = document.querySelector('input');
+  document.querySelector('.closeButton').addEventListener("click", () => {
+  notification.remove()
+  setElementById.price.value.innerHTML=''
+  });
+  // let range = new Range();
+  
+  // range.setStart(form, 2);
+  // range.setEnd(form, 5);
+  // let greenStyle = input.value;
+  input.style.color = "green";
+  // input.style.color = "white";
+  console.log(input.value);
+  
+  // document.getSelection().addRange(range);
 };
 
 
+form.addEventListener("focusout", () => {
+  notification.remove()
+  createNotification(form, "top", "bottom", "note")
+  selectValue()
+});
 
-
- form.addEventListener("focusout", () => createNotification(form, "top", "note"));
-form.addEventListener("focusout", () => selectValue());
+//  form.addEventListener("focusout", () => createNotification(form, "top", "note"));
+// form.addEventListener("focusout", () => selectValue());
 let closeButton = document.querySelector('button');
 console.log(closeButton)
 // closeButton.addEventListener("onclick", () => remove.notification);
