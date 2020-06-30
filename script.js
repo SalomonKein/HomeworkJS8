@@ -2,31 +2,38 @@ let notification = document.createElement('span');
 // <<<<<<< HEAD
 // function createNotification(anchor, position, html) {
 
-   
-    
+
+
 // =======
 
 function createNotification(anchor, position, html) {
 
-// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
+    // >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
     notification.className = "note";
     let curentPrice = document.querySelector('input');
     console.log(typeof(curentPrice.value));
-    if (curentPrice.value < 0) {
+    if (curentPrice.value < 0 || !isFinite(curentPrice.value) || curentPrice.value == "empty string") {
 
         notification.innerHTML = `Please enter correct price`;
         form.after(notification);
-        input.style.border = 'red';
+
         positionAt(anchor, "bottom", notification);
+        curentPrice.style.color = "red";
+        // curentPrice.value.style.background = "red";
+        createCloseCross(notification, 'closeButton')
+        console.log(curentPrice.value);
+        // } else if (curentPrice.value = "empty string") {
+
     } else {
-        // let curentPriceGreen = curentPrice.value.style.background = "green";
+
         notification.innerHTML = `Curent price: ${curentPrice.value}`;
         form.before(notification);
 
         positionAt(anchor, "top", notification);
-
+        curentPrice.style.color = "green";
         createCloseCross(notification, 'closeButton')
     }
+
 
 }
 let form = document.querySelector('form')
@@ -56,8 +63,8 @@ function positionAt(anchor, position, elem) {
             break;
         case "bottom":
 
-            elem.style.left = anchorCoords.left + 5 + elem.offsetWidth + "px";
-            elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
+            elem.style.left = anchorCoords.left + "px";
+            elem.style.top = anchorCoords.top + 75 - elem.offsetHeight + "px";
             break;
     }
 }
@@ -75,75 +82,25 @@ function createCloseCross(anchor, position, ) {
 
 }
 
-console.log(crossButton);
-// let span = document.querySelector('span');
-// console.log(span);
+
 crossButton.addEventListener("onclick", () => notification.remove());
 
 function selectValue() {
-// <<<<<<< HEAD
-  let input = document.querySelector('input');
-  document.querySelector('.closeButton').addEventListener("click", () => {
-  notification.remove()
-  // setElementById.price.value.innerHTML=''
-  });
-  // let range = new Range();
-  
-  // range.setStart(form, 2);
-  // range.setEnd(form, 5);
-  // let greenStyle = input.value;
-  input.style.color = "green";
-  // input.style.color = "white";
-  console.log(input.value);
-  
-  // document.getSelection().addRange(range);
-// =======
-//     // let range = new Range();
-//     let input = document.querySelector('input');
-//     // range.setStart(form, 2);
-//     // range.setEnd(form, 5);
-//     // let greenStyle = input.value;
-//     input.style.background = "green";
-//     input.style.color = "white";
-//     console.log(input.value);
+    let input = document.querySelector('input');
+    document.querySelector('.closeButton').addEventListener("click", () => {
+        notification.remove()
+        input.value = ""
+        input.style.color = "black"
+    });
 
-//     // document.getSelection().addRange(range);
-// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
+    console.log(input.value);
 };
 
 
 form.addEventListener("focusout", () => {
-  notification.remove()
-  createNotification(form, "top", "bottom", "note")
-  selectValue()
+    createNotification(form, "top", "bottom", "note")
+    selectValue()
 });
 
-// <<<<<<< HEAD
-//  form.addEventListener("focusout", () => createNotification(form, "top", "note"));
-// form.addEventListener("focusout", () => selectValue());
 let closeButton = document.querySelector('button');
 console.log(closeButton)
-// closeButton.addEventListener("onclick", () => remove.notification);
-
-
-// price.onblur = function() {
-//     createNotification(form, "top", "note");
-// };
-
-// body.onclick = function(event) {
-//     // if (!event.price) {
-//     createNotification(form, "top", "note");
-//     // }
-// };
-// body.onclick = function(event) {
-//     alert(event.type + " на " + event.currentTarget);
-//     // alert("Координаты: " + event.clientX + ":" + event.clientY);
-// };
-// =======
-
-// form.addEventListener("focusout", () => notification.remove());
-// form.addEventListener("focusout", () => createNotification(form, "top", "bottom", "note"))
-// form.addEventListener("focusout", () => selectValue());
-
-// // closeButton.addEventListener("onclick", () => remove.notification);
-// >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
