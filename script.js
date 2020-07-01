@@ -12,16 +12,19 @@ function createNotification(anchor, position, html) {
     notification.className = "note";
     let curentPrice = document.querySelector('input');
     console.log(typeof(curentPrice.value));
-    if (curentPrice.value < 0 || !isFinite(curentPrice.value) || curentPrice.value == "empty string") {
+    console.log(typeof(curentPrice));
+
+
+    if (curentPrice.value < 0 || !isFinite(curentPrice.value) || curentPrice.value == "" || curentPrice.value === " " || curentPrice.value === "  " || curentPrice.value === "   " || curentPrice.value === "    " || curentPrice.value === "     ") {
 
         notification.innerHTML = `Please enter correct price`;
         form.after(notification);
 
         positionAt(anchor, "bottom", notification);
         curentPrice.style.color = "red";
-        // curentPrice.value.style.background = "red";
         createCloseCross(notification, 'closeButton')
-        console.log(curentPrice.value);
+        console.log(`value = "${curentPrice.value}"`);
+
         // } else if (curentPrice.value = "empty string") {
 
     } else {
@@ -93,7 +96,7 @@ function selectValue() {
         input.style.color = "black"
     });
 
-    console.log(input.value);
+    // console.log(input.value);
 };
 
 
@@ -103,4 +106,4 @@ form.addEventListener("focusout", () => {
 });
 
 let closeButton = document.querySelector('button');
-console.log(closeButton)
+// console.log(closeButton)
