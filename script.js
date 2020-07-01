@@ -1,21 +1,15 @@
 let notification = document.createElement('span');
-// <<<<<<< HEAD
-// function createNotification(anchor, position, html) {
 
-
-
-// =======
 
 function createNotification(anchor, position, html) {
 
-    // >>>>>>> 4e209c851a47c21dd37e4cdfc2ac1e25418c962e
     notification.className = "note";
     let curentPrice = document.querySelector('input');
     console.log(typeof(curentPrice.value));
     console.log(typeof(curentPrice));
 
 
-    if (curentPrice.value < 0 || !isFinite(curentPrice.value) || curentPrice.value == "" || curentPrice.value === " " || curentPrice.value === "  " || curentPrice.value === "   " || curentPrice.value === "    " || curentPrice.value === "     ") {
+    if (curentPrice.value < 0 || !isFinite(curentPrice.value) || curentPrice.value.trim() == "") {
 
         notification.innerHTML = `Please enter correct price`;
         form.after(notification);
